@@ -1,24 +1,16 @@
-<!DOCTYPE html>
-<html lang="he">
-<head>
-  <meta charset="UTF-8">
-  <title>טאב בלוז #1</title>
-  <link rel="stylesheet" href="style.css">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T9B5F6M5QE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-T9B5F6M5QE');
-  </script>
-</head>
-<body>
-  <div class="container">
-    <h1>טאב גיטרה - Blues #1</h1>
-    <p>להורדת הטאב המלא בפורמט PDF, לחץ על הכפתור:</p>
-    <a href="files/Blues 1.pdf" download onclick="gtag('event', 'download', {'event_category': 'Tabs','event_label': 'Blues 1'});">
-      📥 הורד טאב
-    </a>
-  </div>
-</body>
-</html>
+<a href="files/Blues 1.pdf" download onclick="trackDownload(event)">
+  📥 הורד טאב
+</a>
+
+<script>
+  function trackDownload(e) {
+    e.preventDefault(); // לעצור רגע את ההורדה
+    gtag('event', 'download', {
+      'event_category': 'Tabs',
+      'event_label': 'Blues 1'
+    });
+    setTimeout(function() {
+      window.location.href = 'files/Blues 1.pdf';
+    }, 300); // 300ms עיכוב קטן כדי ש-GA יספיק לשלוח את האירוע
+  }
+</script>
