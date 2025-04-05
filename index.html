@@ -3,7 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <title>טאב בלוז #1</title>
+  <link rel="stylesheet" href="style.css"><!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>טאב בלוז #1</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T9B5F6M5QE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T9B5F6M5QE');
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>טאב גיטרה - Blues #1</h1>
+    <p>להורדת הטאב המלא בפורמט PDF, לחץ על הכפתור:</p>
+
+    <a href="files/Blues 1.pdf" download id="download-link">
+      📥 הAAAAA
+    </a>
+  </div>
+
+  <!-- JavaScript למטה כדי לוודא שהכול טען -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var link = document.getElementById('download-link');
+
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+alert("1")
+        if (typeof gtag === 'function') {
+          gtag('event', 'download', {
+            'event_category': 'Tabs',
+            'event_label': 'Blues 1'
+          })
+          alert("2");
+          alert("3")
+        }
+
+        // עיכוב קצר כדי שהאירוע יישלח לפני ההורדה
+        setTimeout(function () {
+          window.location.href = link.href;
+        }, 300);
+      });
+    });
+  </script>
+</body>
+</html>
+
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-T9B5F6M5QE"></script>
