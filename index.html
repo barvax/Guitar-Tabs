@@ -16,30 +16,35 @@
 </head>
 <body>
   <div class="container">
-    <h1>wow - Blues #1</h1>
+    <h1>טאב גיטרה - Blues #1</h1>
     <p>להורדת הטאב המלא בפורמט PDF, לחץ על הכפתור:</p>
 
-    <a href="files/Blues 1.pdf" download onclick="trackDownload(event)">
-      📥 הורד טאב
+    <a href="files/Blues 1.pdf" download id="download-link">
+      📥 הורhghgf
     </a>
   </div>
 
-  <!-- Tracking Function -->
+  <!-- JavaScript למטה כדי לוודא שהכול טען -->
   <script>
-    function trackDownload(e) {
-      e.preventDefault(); // מונע את ההורדה המיידית
+    document.addEventListener('DOMContentLoaded', function () {
+      var link = document.getElementById('download-link');
 
-      // שולח את האירוע ל-Google Analytics
-      gtag('event', 'download', {
-        'event_category': 'Tabs',
-        'event_label': 'Blues 1'
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'download', {
+            'event_category': 'Tabs',
+            'event_label': 'Blues 1'
+          });
+        }
+
+        // עיכוב קצר כדי שהאירוע יישלח לפני ההורדה
+        setTimeout(function () {
+          window.location.href = link.href;
+        }, 300);
       });
-
-      // עיכוב קצר כדי ש-GA יספיק לשלוח את האירוע
-      setTimeout(function() {
-        window.location.href = 'files/Blues 1.pdf';
-      }, 300);
-    }
+    });
   </script>
 </body>
 </html>
