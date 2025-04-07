@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>טאב בלוז #1</title>
+  <title>Blues Guitar Tabs by [Your Name]</title>
   <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="files/Blues Guitar.png" type="image/x-icon">
+
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-T9B5F6M5QE"></script>
@@ -16,32 +19,63 @@
 </head>
 <body>
   <div class="container">
-    <h1>טאב גיטרה - Blues #1</h1>
-    <p>להורדת הטאב המלא בפורמט PDF, לחץ על הכפתור:</p>
+  
+    <h2>🎸 My Blues Guitar Lessons</h2>
+    <div class="subscribe-note">
+      <p>Enjoyed the tab? Subscribe to my channel for more!</p>
+      <a class="subscribe-button" href="https://www.youtube.com/channel/UCYfy-mkAh5y-Mwqt-7GvDVg?sub_confirmation=1" target="_blank">
+        Subscribe 🔔
+      </a>
+    </div>
+    <div class="video-grid">
 
-    <a href="files/Blues 1.pdf" download id="download-link">
-      📥 רון
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/FiHw8-IX4_s"
+                title="lassic 12-Bar Blues in A" frameborder="0" allowfullscreen></iframe>
+        <p>Classic 12-Bar Blues in A</p>
+        <a href="Blues 1.pdf" download class="download-button"
+           data-label="Blues 1 PDF">Download Tab</a>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/tFOvCv5Oei0"
+                title="Lesson 2" frameborder="0" allowfullscreen></iframe>
+        <p>Blues Guitar in E – Short 12-Bar Blues </p>
+        <a href="files/blues-tab-2.pdf" download class="download-button"
+           data-label="Blues Tab 2 PDF">Download Tab</a>
+      </div>
+      
+
+     
+      
+
+    </div>
+    <a href="https://www.youtube.com/channel/UCYfy-mkAh5y-Mwqt-7GvDVg" target="_blank" class="youtube-link">
+      🎥 Visit my YouTube Channel
     </a>
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      var link = document.getElementById('download-link');
+      const links = document.querySelectorAll('.download-button');
 
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
+      links.forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
 
-        if (typeof gtag === 'function') {
-          gtag('event', 'file_download', {
-            event_category: 'Tab Downloads',
-            event_label: 'Blues 1 PDF',
-            value: 1
-          });
-        }
+          const label = this.getAttribute('data-label') || 'Unknown Tab';
 
-        setTimeout(function () {
-          window.location.href = link.href;
-        }, 300);
+          if (typeof gtag === 'function') {
+            gtag('event', 'file_download', {
+              event_category: 'Tabs',
+              event_label: label,
+              value: 1
+            });
+          }
+
+          setTimeout(() => {
+            window.location.href = this.href;
+          }, 300);
+        });
       });
     });
   </script>
