@@ -23,9 +23,12 @@
     <h2>🎸 My Blues Guitar Lessons</h2>
     <div class="subscribe-note">
       <p>Enjoyed the tab? Subscribe to my channel for more!</p>
-      <a class="subscribe-button" href="https://www.youtube.com/channel/UCYfy-mkAh5y-Mwqt-7GvDVg?sub_confirmation=1" target="_blank">
-        Subscribe 🔔
-      </a>
+      <a class="subscribe-button"
+   href="https://www.youtube.com/channel/UCYfy-mkAh5y-Mwqt-7GvDVg?sub_confirmation=1"
+   target="_blank"
+   id="subscribe-button">
+   Subscribe 🔔
+</a>
     </div>
     <div class="video-grid">
 
@@ -78,6 +81,24 @@
         });
       });
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+  const subscribeBtn = document.getElementById('subscribe-button');
+
+  if (subscribeBtn) {
+    subscribeBtn.addEventListener('click', function () {
+      if (typeof gtag === 'function') {
+        gtag('event', 'subscribe_click', {
+          event_category: 'Engagement',
+          event_label: 'YouTube Subscribe Button'
+        });
+      }
+    });
+  }
+
+  
+});
+
   </script>
 </body>
 </html>
