@@ -20,7 +20,7 @@
 <body>
   <div class="container">
   
-    <h2>🎸 My Blues Guitar Lessons</h2>
+    <h2>🎸 My Blues Guitar Video's</h2>
     <div class="subscribe-note">
       <p>Enjoyed the tab? Subscribe to my channel for more!</p>
       <a class="subscribe-button"
@@ -68,7 +68,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const links = document.querySelectorAll('.download-button');
-
+      console.log("wow")
       links.forEach(link => {
         link.addEventListener('click', function (e) {
           e.preventDefault();
@@ -77,11 +77,13 @@
 
           if (typeof gtag === 'function') {
             gtag('event', 'file_download', {
-              event_category: 'Tabs',
-              event_label: label,
+              // event_category: 'Tabs',
+              // event_label: label,
+              event_category: 'Tab Downloads',
+              event_label: 'Blues 1 PDF',
               value: 1
             });
-            console.log("ron")
+            console.log("wow2")
           }
 
           setTimeout(() => {
